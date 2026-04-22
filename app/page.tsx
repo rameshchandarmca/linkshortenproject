@@ -1,65 +1,110 @@
-import Image from "next/image";
+import Link from "next/link";
+import {
+  BarChart3,
+  Globe,
+  Link2,
+  ShieldCheck,
+  Sparkles,
+  Zap,
+} from "lucide-react";
+import { buttonVariants } from "@/components/ui/button";
+import { cn } from "@/lib/utils";
+
+const features = [
+  {
+    title: "URL shortening",
+    description: "Turn long links into clean, shareable short URLs in seconds.",
+    icon: Link2,
+  },
+  {
+    title: "Click analytics",
+    description: "Track clicks and engagement to understand link performance.",
+    icon: BarChart3,
+  },
+  {
+    title: "Speed",
+    description: "Fast redirects for a smooth experience on every device.",
+    icon: Zap,
+  },
+  {
+    title: "Security",
+    description: "Built with secure, reliable infrastructure to protect your links.",
+    icon: ShieldCheck,
+  },
+  {
+    title: "Custom domains",
+    description: "Use branded domains to build trust and improve recognition.",
+    icon: Globe,
+  },
+  {
+    title: "Bulk shortening",
+    description: "Create many short links at once for campaigns and teams.",
+    icon: Sparkles,
+  },
+];
 
 export default function Home() {
   return (
-    <div className="flex flex-col flex-1 items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex flex-1 w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the page.tsx file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
+    <main className="flex-1">
+      <section className="mx-auto flex w-full max-w-6xl flex-col items-center gap-6 px-6 pt-24 text-center md:px-8">
+        <h1 className="max-w-3xl text-4xl font-semibold tracking-tight sm:text-5xl">
+          Shorten links smarter. Share with confidence.
+        </h1>
+        <p className="max-w-2xl text-lg text-muted-foreground">
+          Create branded short URLs, monitor performance, and manage campaigns
+          from one fast, secure dashboard.
+        </p>
+        <div className="flex w-full max-w-md flex-col gap-3 sm:flex-row">
+          <Link
+            href="/dashboard"
+            className={cn(buttonVariants({ size: "lg" }), "w-full")}
+          >
+            Start shortening
+          </Link>
+          <Link
+            href="/dashboard"
+            className={cn(
+              buttonVariants({ variant: "outline", size: "lg" }),
+              "w-full",
+            )}
+          >
+            View dashboard
+          </Link>
+        </div>
+      </section>
+
+      <section className="mx-auto grid w-full max-w-6xl gap-4 px-6 py-16 sm:grid-cols-2 lg:grid-cols-3 md:px-8">
+        {features.map(({ title, description, icon: Icon }) => (
+          <article
+            key={title}
+            className="rounded-lg border bg-card p-6 text-left shadow-sm"
+          >
+            <div className="mb-4 inline-flex rounded-md bg-muted p-2 text-muted-foreground">
+              <Icon className="size-5" aria-hidden />
+            </div>
+            <h2 className="text-lg font-medium">{title}</h2>
+            <p className="mt-2 text-sm text-muted-foreground">{description}</p>
+          </article>
+        ))}
+      </section>
+
+      <section className="mx-auto w-full max-w-6xl px-6 pb-20 md:px-8">
+        <div className="rounded-xl border bg-card px-6 py-10 text-center sm:px-10">
+          <h2 className="text-2xl font-semibold tracking-tight">
+            Ready to simplify your links?
+          </h2>
+          <p className="mx-auto mt-3 max-w-2xl text-muted-foreground">
+            Get started in seconds and keep all your links organized in one
+            place.
           </p>
-        </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
+          <Link
+            href="/dashboard"
+            className={cn(buttonVariants({ size: "lg" }), "mt-6")}
           >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
-            />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
+            Go to dashboard
+          </Link>
         </div>
-      </main>
-    </div>
+      </section>
+    </main>
   );
 }
