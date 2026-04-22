@@ -42,6 +42,7 @@ const features = [
     icon: Sparkles,
   },
 ];
+const DASHBOARD_ROUTE = "/dashboard";
 
 export default function Home() {
   return (
@@ -56,13 +57,13 @@ export default function Home() {
         </p>
         <div className="flex w-full max-w-md flex-col gap-3 sm:flex-row">
           <Link
-            href="/dashboard"
+            href={DASHBOARD_ROUTE}
             className={cn(buttonVariants({ size: "lg" }), "w-full")}
           >
             Start shortening
           </Link>
           <Link
-            href="/dashboard"
+            href={DASHBOARD_ROUTE}
             className={cn(
               buttonVariants({ variant: "outline", size: "lg" }),
               "w-full",
@@ -80,7 +81,7 @@ export default function Home() {
             className="rounded-lg border bg-card p-6 text-left shadow-sm"
           >
             <div className="mb-4 inline-flex rounded-md bg-muted p-2 text-muted-foreground">
-              <Icon className="size-5" aria-hidden />
+              <Icon className="size-5" aria-hidden={true} />
             </div>
             <h2 className="text-lg font-medium">{title}</h2>
             <p className="mt-2 text-sm text-muted-foreground">{description}</p>
@@ -98,7 +99,7 @@ export default function Home() {
             place.
           </p>
           <Link
-            href="/dashboard"
+            href={DASHBOARD_ROUTE}
             className={cn(buttonVariants({ size: "lg" }), "mt-6")}
           >
             Go to dashboard
