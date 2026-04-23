@@ -27,7 +27,7 @@ const features = [
 
 export default function Home() {
   return (
-    <main className="flex flex-1 items-center justify-center px-6 py-12 sm:px-8">
+    <main id="top" className="flex flex-1 items-center justify-center px-6 py-12 sm:px-8">
       <div className="w-full max-w-6xl space-y-14">
         <section className="mx-auto max-w-3xl space-y-6 text-center">
           <p className="text-sm font-medium text-muted-foreground">LinkPilot</p>
@@ -46,18 +46,19 @@ export default function Home() {
               Get started
             </Link>
             <Link
-              href="/dashboard"
+              href="#features"
               className={cn(
                 buttonVariants({ variant: "outline", size: "lg" }),
                 "px-6"
               )}
             >
-              View dashboard
+              See features
             </Link>
           </div>
         </section>
 
         <section
+          id="features"
           className="grid gap-4 md:grid-cols-3"
           aria-label="Link shortener features"
         >
