@@ -23,7 +23,7 @@ const features = [
       "Track clicks and understand which links perform best with simple analytics in one dashboard.",
     icon: BarChart3,
   },
-] as const;
+];
 
 const productName = "LinkPilot";
 
@@ -59,11 +59,7 @@ export default function Home() {
           </div>
         </section>
 
-        <section
-          id="features"
-          className="grid gap-4 md:grid-cols-3"
-          aria-label="Link shortener features"
-        >
+        <section id="features" className="grid gap-4 md:grid-cols-3">
           <h2 className="sr-only">Link shortener features</h2>
           {features.map(({ title, description, icon: Icon }) => (
             <article
