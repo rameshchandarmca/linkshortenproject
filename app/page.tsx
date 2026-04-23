@@ -69,7 +69,7 @@ export default function Home() {
               className="rounded-xl border bg-card p-6 text-card-foreground"
             >
               <div className="mb-4 inline-flex rounded-md bg-secondary p-2">
-                <Icon className="size-5" aria-hidden />
+                <Icon className="size-5" aria-hidden="true" />
               </div>
               <h3 className="text-lg font-medium">{title}</h3>
               <p className="mt-2 text-sm text-muted-foreground">{description}</p>
@@ -97,7 +97,7 @@ export default function Home() {
             href="#features"
             className={cn(buttonVariants({ variant: "ghost", size: "lg" }))}
           >
-            Learn more
+            Learn more about features
           </Link>
         </div>
       </section>
