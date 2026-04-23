@@ -6,101 +6,88 @@ import { cn } from "@/lib/utils";
 
 const features = [
   {
-    title: "Instant short links",
+    title: "Branded short links",
     description:
-      "Turn long URLs into clean, shareable links in seconds with a simple workflow.",
+      "Create clean, memorable links that are easy to share across social posts, emails, and campaigns.",
     icon: Link2,
-  },
-  {
-    title: "Track performance",
-    description:
-      "Monitor clicks and traffic trends so you can understand what your audience engages with.",
-    icon: BarChart3,
   },
   {
     title: "Reliable redirects",
     description:
-      "Keep links dependable with secure routing that scales with campaigns and products.",
+      "Fast redirects and stable URLs help your audience land exactly where they need to go.",
     icon: ShieldCheck,
   },
-];
+  {
+    title: "Actionable insights",
+    description:
+      "Track clicks and understand which links perform best with simple analytics in one dashboard.",
+    icon: BarChart3,
+  },
+] as const;
 
 export default function Home() {
   return (
-    <main className="mx-auto flex w-full max-w-6xl flex-1 flex-col gap-16 px-6 pb-16 pt-10 sm:px-10 lg:px-16 lg:pt-16">
-      <section className="space-y-6 text-center md:text-left">
-        <p className="text-sm font-medium text-muted-foreground">
-          Smart link management for teams and creators
-        </p>
-        <h1 className="mx-auto max-w-3xl text-balance text-4xl font-semibold tracking-tight sm:text-5xl md:mx-0">
-          Shorten, share, and track every link from one place.
-        </h1>
-        <p className="mx-auto max-w-2xl text-pretty text-muted-foreground md:mx-0">
-          Create clean short URLs in seconds, monitor engagement, and keep your
-          links reliable across campaigns, posts, and product updates.
-        </p>
-        <div className="flex flex-col items-center gap-3 sm:flex-row md:items-start">
-          <Link
-            href="/dashboard"
-            className={cn(buttonVariants({ size: "lg" }), "w-full sm:w-auto")}
-          >
-            Start shortening links
-          </Link>
-          <Link
-            href="#features"
-            className={cn(
-              buttonVariants({ variant: "outline", size: "lg" }),
-              "w-full sm:w-auto"
-            )}
-          >
-            Explore features
-          </Link>
-        </div>
-      </section>
+    <main id="top" className="flex flex-1 items-center justify-center px-6 py-12 sm:px-8">
+      <div className="w-full max-w-6xl space-y-14">
+        <section className="mx-auto max-w-3xl space-y-6 text-center">
+          <p className="text-sm font-medium text-muted-foreground">LinkPilot</p>
+          <h1 className="text-4xl font-semibold tracking-tight sm:text-5xl">
+            Shorten, share, and track every link with confidence
+          </h1>
+          <p className="text-lg text-muted-foreground">
+            Create powerful short URLs for your product, campaigns, and content
+            in seconds.
+          </p>
+          <div className="flex flex-wrap items-center justify-center gap-3">
+            <Link
+              href="/dashboard"
+              className={cn(buttonVariants({ size: "lg" }), "px-6")}
+            >
+              Get started
+            </Link>
+            <Link
+              href="#features"
+              className={cn(
+                buttonVariants({ variant: "outline", size: "lg" }),
+                "px-6"
+              )}
+            >
+              See features
+            </Link>
+          </div>
+        </section>
 
-      <section id="features" className="space-y-6">
-        <h2 className="text-center text-2xl font-semibold md:text-left">
-          Everything you need to manage links
-        </h2>
-        <div className="grid gap-4 md:grid-cols-3">
+        <section
+          id="features"
+          className="grid gap-4 md:grid-cols-3"
+          aria-label="Link shortener features"
+        >
           {features.map(({ title, description, icon: Icon }) => (
             <article
               key={title}
-              className="rounded-xl border bg-card p-6 text-card-foreground"
+              className="rounded-lg border bg-card p-6 text-card-foreground"
             >
-              <div className="mb-4 inline-flex rounded-md bg-secondary p-2">
-                <Icon className="size-5" aria-hidden="true" />
-              </div>
-              <h3 className="text-lg font-medium">{title}</h3>
+              <Icon className="size-5 text-primary" aria-hidden="true" />
+              <h2 className="mt-4 text-xl font-medium">{title}</h2>
               <p className="mt-2 text-sm text-muted-foreground">{description}</p>
             </article>
           ))}
-        </div>
-      </section>
+        </section>
 
-      <section
-        id="cta"
-        className="rounded-2xl border bg-secondary/40 p-8 text-center sm:p-10"
-      >
-        <h2 className="text-2xl font-semibold tracking-tight sm:text-3xl">
-          Ready to simplify your links?
-        </h2>
-        <p className="mx-auto mt-3 max-w-2xl text-muted-foreground">
-          Join now and start creating branded, trackable links that are built to
-          perform.
-        </p>
-        <div className="mt-6 flex flex-col justify-center gap-3 sm:flex-row">
-          <Link href="/dashboard" className={cn(buttonVariants({ size: "lg" }))}>
-            Go to dashboard
-          </Link>
-          <Link
-            href="#features"
-            className={cn(buttonVariants({ variant: "ghost", size: "lg" }))}
-          >
-            Learn more about features
-          </Link>
-        </div>
-      </section>
+        <section className="rounded-lg border bg-muted/40 px-6 py-10 text-center">
+          <h2 className="text-2xl font-semibold tracking-tight">
+            Ready to manage your links in one place?
+          </h2>
+          <p className="mt-2 text-muted-foreground">
+            Sign up in seconds and start shortening links for your next launch.
+          </p>
+          <div className="mt-6">
+            <Link href="/dashboard" className={cn(buttonVariants(), "px-6")}>
+              Start now
+            </Link>
+          </div>
+        </section>
+      </div>
     </main>
   );
 }
