@@ -23,14 +23,16 @@ const features = [
       "Track clicks and understand which links perform best with simple analytics in one dashboard.",
     icon: BarChart3,
   },
-] as const;
+];
+
+const productName = "LinkPilot";
 
 export default function Home() {
   return (
     <main id="top" className="flex flex-1 items-center justify-center px-6 py-12 sm:px-8">
       <div className="w-full max-w-6xl space-y-14">
         <section className="mx-auto max-w-3xl space-y-6 text-center">
-          <p className="text-sm font-medium text-muted-foreground">LinkPilot</p>
+          <p className="text-sm font-medium text-muted-foreground">{productName}</p>
           <h1 className="text-4xl font-semibold tracking-tight sm:text-5xl">
             Shorten, share, and track every link with confidence
           </h1>
@@ -57,18 +59,15 @@ export default function Home() {
           </div>
         </section>
 
-        <section
-          id="features"
-          className="grid gap-4 md:grid-cols-3"
-          aria-label="Link shortener features"
-        >
+        <section id="features" className="grid gap-4 md:grid-cols-3">
+          <h2 className="sr-only">Link shortener features</h2>
           {features.map(({ title, description, icon: Icon }) => (
             <article
               key={title}
               className="rounded-lg border bg-card p-6 text-card-foreground"
             >
               <Icon className="size-5 text-primary" aria-hidden="true" />
-              <h2 className="mt-4 text-xl font-medium">{title}</h2>
+              <h3 className="mt-4 text-xl font-medium">{title}</h3>
               <p className="mt-2 text-sm text-muted-foreground">{description}</p>
             </article>
           ))}
