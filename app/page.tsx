@@ -47,15 +47,6 @@ export default function Home() {
             >
               Get started
             </Link>
-            <Link
-              href="#features"
-              className={cn(
-                buttonVariants({ variant: "outline", size: "lg" }),
-                "px-6"
-              )}
-            >
-              See features
-            </Link>
           </div>
         </section>
 
